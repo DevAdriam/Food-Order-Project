@@ -1,0 +1,110 @@
+[
+  {
+    "product": "Mohinga",
+    "image": "./imgs/Mohinga.jpg",
+    "rated": 9000,
+    "price": "500MMK",
+    "priceNumber": 500,
+    "number": 1
+  },
+
+  {
+    "product": "Coconut-Noodle",
+    "image": "./imgs/Coconut-Noodles-articleLarge.jpg",
+
+    "rated": 8000,
+    "price": "500MMK",
+    "priceNumber": 500,
+    "number": 2
+  },
+
+  {
+    "product": "Nan Gyi Toke",
+    "image": "./imgs/NanGyiThoke.jpg",
+    "rated": 7000,
+    "price": "800MMK",
+    "priceNumber": 800,
+    "number": 3
+  },
+
+  {
+    "product": "Fried Rice",
+    "image": "./imgs/fried-rice-8-1200.jpg",
+    "rated": 5000,
+    "price": "1200MMK",
+    "priceNumber": 1200,
+    "number": 4
+  },
+
+  {
+    "product": "Shan Noodles",
+    "image": "./imgs/Shan-noodles-4-FP.jpg",
+    "rated": 6000,
+    "price": "800MMK",
+    "priceNumber": 800,
+    "number": 5
+  },
+
+  {
+    "product": "Tom Yan Noodle",
+    "image": "./imgs/TomYam-Noodle.jpg",
+    "rated": 5000,
+    "price": "1500MMK",
+    "priceNumber": 1500,
+    "number": 6
+  },
+
+  {
+    "product": "Oil Rice",
+    "image": "./imgs/Oilrice.jpg",
+    "rated": 3000,
+    "price": "400MMK",
+    "priceNumber": 400,
+    "number": 7
+  },
+
+  {
+    "product": "Kyar Zan Chat",
+    "image": "./imgs/Kyar-zan-chat.jpg",
+    "rated": 4000,
+    "price": "500MMK",
+    "priceNumber": 500,
+    "number": 8
+  },
+
+  {
+    "product": "Khao Soi Noodles",
+    "image": "./imgs/Khao-Soi-Noodles-square.jpg",
+    "rated": 2000,
+    "price": "1500MMK",
+    "priceNumber": 1500,
+    "number": 9
+  },
+
+  {
+    "product": "Khao Soi Noodles",
+    "image": "./imgs/Khao-Soi-Noodles-square.jpg",
+    "rated": 2000,
+    "price": "2000MMK",
+    "priceNumber": 2000,
+    "number": 10
+  },
+
+  {
+    "product": "Khao Soi Noodles",
+    "image": "./imgs/Khao-Soi-Noodles-square.jpg",
+    "rated": 2000,
+    "price": "1500MMK",
+    "priceNumber": 1500,
+    "number": 11
+  },
+
+  {
+    "product": "Khao Soi Noodles",
+    "image": "./imgs/Khao-Soi-Noodles-square.jpg",
+    "rated": 2000,
+    "price": "400MMK",
+    "priceNumber": 400,
+    "number": 12
+  }
+]

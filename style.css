@@ -1,0 +1,284 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-height: 100vh;
+}
+
+.container .header {
+  display: flex;
+  justify-content: center;
+}
+
+.header .headertext {
+  margin-top: 20px;
+}
+
+.Menu {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+.Menurole {
+  display: flex;
+  gap: 20px;
+}
+.Menu .catetext {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+.Menu .btn {
+  background: orange;
+  border: none;
+  height: 40px;
+  width: 100px;
+
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Menu .catebtn {
+  width: 120px;
+}
+.ratingcontainer,
+.itemcontainer {
+  background-color: orange;
+  width: 130px;
+
+  text-align: center;
+  margin-top: 3px;
+  cursor: pointer;
+
+  transition: all 0.8s;
+  transform: translate(-20px, 100px);
+
+  visibility: hidden;
+
+  opacity: 0;
+  z-index: 10;
+  position: relative;
+}
+
+.ratingcontainer ul,
+.itemcontainer ul {
+  list-style-type: none;
+}
+
+.ratingcontainer ul li,
+.itemcontainer ul li {
+  border-bottom: 1px solid black;
+  height: 40px;
+  line-height: 40px;
+}
+
+.btn:hover .ratingcontainer,
+.catebtn:hover .itemcontainer {
+  visibility: visible;
+
+  opacity: 1;
+  transform: translate(-20px, 12px);
+}
+
+.ratingcontainer ul li:hover,
+.itemcontainer ul li:hover {
+  background: rgba(201, 141, 29, 0.74);
+}
+
+.foodcontainer {
+  width: 100%;
+  /* height: 500px;
+  background-color: rgb(231, 160, 28); */
+}
+
+.foodcontainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  gap: 45px;
+  margin-bottom: 20px;
+}
+.foodcontainer img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+
+  transition: all 0.2s;
+}
+.foodcontainer .items {
+  width: 250px;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: 3px 5px 5px 5px #f2f2f2;
+  position: relative;
+}
+
+.items h3 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.items .firstrow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items button {
+  background: orange;
+  border: none;
+
+  font-size: 1rem;
+  font-weight: bold;
+  width: 90%;
+  height: 15%;
+  border-radius: 20px;
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+
+  transform: translateX(-50%);
+  cursor: pointer;
+
+  letter-spacing: 2px;
+  display: none;
+}
+
+.cart {
+  margin-right: 50px;
+  position: relative;
+  color: black;
+}
+.badge {
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 17px;
+  top: -28px;
+}
+
+.items {
+  position: relative;
+}
+
+.addingcart img {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.addingcart {
+  position: absolute;
+  top: 10px;
+  left: 90%;
+  opacity: 0;
+  transition: all 0.4s;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.items:hover .itemimage {
+  filter: blur(2px) !important;
+}
+
+.items:hover.items .addingcart {
+  opacity: 1;
+  left: 78%;
+}
+
+#cartbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 30;
+}
+
+#cartbox img {
+  width: 150px;
+  height: 100px;
+
+  border-radius: 25% 75% 56% 44% / 59% 52% 48% 41%;
+}
+.addtocart1,
+.addtocart2 {
+  width: 400px;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 20px 0px 0px 20px;
+  background: linear-gradient(orange, rgba(255, 166, 0, 0.678));
+  box-shadow: 5px 5px 5px 5px #f4f4f4;
+
+  position: absolute;
+  top: 200px;
+  right: -400px;
+  transition: all 0.3s ease-in-out;
+}
+
+.addtocart2 {
+  right: 0px;
+  z-index: 2;
+}
+
+.Amoutdiv {
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartdiv {
+  width: 100%;
+  height: max-content;
+  background: #fff;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px;
+  margin: 10px 20px;
+}
+.close {
+  background: none;
+  border: none;
+
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+
+  position: relative;
+  top: -35px;
+}
+
+.close:hover {
+  color: black;
+}
