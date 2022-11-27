@@ -32,48 +32,55 @@
       <!-- ========== Start Categories ========== -->
 
       <div class="Menu">
-        <div class="Menurole">
+        <div class="introHeader">
           <p class="catetext">ရရှိနိုင်သောအစားအစာများ</p>
-
-          <div class="rating">
-            <button type="button" class="btn">
-              Ratings
-              <div class="ratingcontainer">
-                <ul>
-                  <a href=""><li class="item">Most Rated</li></a>
-                  <a href=""><li class="item">Few Rated</li></a>
-                  <a href=""><li class="item">Most Popular</li></a>
-                  <a href=""><li class="item">Most Ordered</li></a>
-                </ul>
-              </div>
-            </button>
-          </div>
-
-          <div class="categories"> 
-            <button type="button" class="btn catebtn">
-              Categories
-              <div class="itemcontainer">
-                <ul>
-                  <a href="javascript:void(0)"
-                    ><li class="item" id="Main">Main Menu</li></a
-                  >
-                  <a href="javascript:void(0)"
-                    ><li class="item" id="dessert">Dessert</li></a
-                  >
-                  <a href="javascript:void(0)"
-                    ><li class="item" id="drinks">Drinks</li></a
-                  >
-                </ul>
-              </div>
-            </button>
-          </div>
         </div>
 
-        <div>
-          <a href="#" class="cart"
-            ><img src="./imgs/add-to-cart2.png" alt="addtocart" width="40px" />
-            <div class="badge"><span id="badgevalue">0</span></div>
-          </a>
+        <div class="cartDropwrapper">
+          <div class="dropdowns">
+            <div class="rating">
+              <button type="button" class="btn">
+                Ratings
+                <div class="ratingcontainer">
+                  <ul>
+                    <a href=""><li class="item">Most Rated</li></a>
+                    <a href=""><li class="item">Few Rated</li></a>
+                    <a href=""><li class="item">Most Popular</li></a>
+                    <a href=""><li class="item">Most Ordered</li></a>
+                  </ul>
+                </div>
+              </button>
+            </div>
+
+            <div class="categories">
+              <button type="button" class="btn catebtn">
+                Categories
+                <div class="itemcontainer">
+                  <ul>
+                    <a href="javascript:void(0)"
+                      ><li class="item" id="Main">Main Menu</li></a
+                    >
+                    <a href="javascript:void(0)"
+                      ><li class="item" id="dessert">Dessert</li></a
+                    >
+                    <a href="javascript:void(0)"
+                      ><li class="item" id="drinks">Drinks</li></a
+                    >
+                  </ul>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="cartwrapper">
+            <a href="#" class="cart"
+              ><img
+                src="./imgs/add-to-cart2.png"
+                alt="addtocart"
+                width="40px"
+              />
+              <div class="badge"><span id="badgevalue">0</span></div>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -87,7 +94,6 @@
       <div id="cartbox" class="addtocart1">
         <div class="Amoutdiv">
           <h3>Your amount = <span id="amount">0 MMk</span></h3>
-          <!-- <button type="button" class="close">x</button> -->
         </div>
       </div>
     </div>

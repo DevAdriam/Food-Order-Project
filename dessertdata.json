@@ -3,83 +3,95 @@
     "image": "./imgs/coconut-steam-milk-.jpg",
     "product": "Coconut Steam Milk",
     "price": "5000MMK",
-    "priceNumber": 5000
+    "priceNumber": 5000,
+    "number": 1
   },
 
   {
     "image": "./imgs/Htoe-Mont--960x768.jpg.webp",
     "product": "Htoe Monk",
     "price": "2000MMK",
-    "priceNumber": 2000
+    "priceNumber": 2000,
+    "number": 2
   },
 
   {
     "image": "./imgs/Burmese-Pancake.jpg",
     "product": "Burmese Pancake",
     "price": "800MMK",
-    "priceNumber": 800
+    "priceNumber": 800,
+    "number": 3
   },
 
   {
     "image": "./imgs/ice-salad.jpg",
     "product": "Ice Salad",
     "price": "3000MMK",
-    "priceNumber": 3000
+    "priceNumber": 3000,
+    "number": 4
   },
 
   {
     "image": "./imgs/lat-phat-toke.jpg",
     "product": "lat Phat Toke",
     "price": "2500MMK",
-    "priceNumber": 2500
+    "priceNumber": 2500,
+    "number": 5
   },
 
   {
     "image": "./imgs/Shwe-Yin-Aye.jpg",
     "product": "Shwe Yin Aye",
     "price": "1200MMK",
-    "priceNumber": 1200
+    "priceNumber": 1200,
+    "number": 6
   },
 
   {
     "image": "./imgs/ice-cream.jpg",
     "product": "Ice Cream",
     "price": "2800MMK",
-    "priceNumber": 2800
+    "priceNumber": 2800,
+    "number": 7
   },
 
   {
     "image": "./imgs/fried bread with halfboiled egg.jpg",
     "product": "Toast Bread with halfboiled egg",
     "price": "4000MMK",
-    "priceNumber": 4000
+    "priceNumber": 4000,
+    "number": 8
   },
 
   {
     "image": "./imgs/steamed banana.jpg",
     "product": "Banana Steam",
     "price": "5000MMK",
-    "priceNumber": 5000
+    "priceNumber": 5000,
+    "number": 9
   },
 
   {
     "image": "./imgs/coconut-steam-milk-.jpg",
     "product": "Coconut Steam Milk",
     "price": "5000MMK",
-    "priceNumber": 5000
+    "priceNumber": 5000,
+    "number": 10
   },
 
   {
     "image": "./imgs/coconut-steam-milk-.jpg",
     "product": "Coconut Steam Milk",
     "price": "5000MMK",
-    "priceNumber": 5000
+    "priceNumber": 5000,
+    "number": 11
   },
 
   {
     "image": "./imgs/coconut-steam-milk-.jpg",
     "product": "Coconut Steam Milk",
     "price": "5000MMK",
-    "priceNumber": 5000
+    "priceNumber": 5000,
+    "number": 12
   }
 ]

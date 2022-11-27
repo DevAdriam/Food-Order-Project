@@ -4,11 +4,18 @@ const getcartbox = document.querySelector("#cartbox");
 const getcart = document.querySelector(".cart");
 const getamount = document.querySelector("#amount");
 const getclosebtn = document.querySelector(".close");
+const getamountdiv = document.querySelector(".Amoutdiv");
+
+let extraspan = document.createElement("span");
+extraspan.textContent = "0";
+extraspan.style.display = "none";
+
+getamountdiv.append(extraspan);
 
 let mainDish;
 let dessertDish;
 let i;
-let y = 1;
+let y;
 let total = 0;
 
 let trashicon;
@@ -16,12 +23,15 @@ let image;
 let firsttextrow;
 let itemname, itemtext;
 let price, priceMMk;
-let addtocart, addtocartimg;
+let addtocart, addtocartimg, orderBlur;
+
+let num, addtocartnum, cancelnum, itemnum;
 
 let itemwrapper;
 let cartprice,
   cartdiv,
   cartimg,
+  cartbutton,
   cartitemprice,
   cartcontent,
   removecart,
@@ -38,7 +48,7 @@ let cancelbtn;
 
 // Async Function section
 async function getMainMenu() {
-  const response = await fetch("http://127.0.0.1:5501/data.json");
+  const response = await fetch("http://127.0.0.1:5500/data.json");
   mainDish = await response.json();
 
   actionOnMain();
@@ -46,7 +56,7 @@ async function getMainMenu() {
 getMainMenu();
 
 async function getDessertMenu() {
-  const response = await fetch("http://127.0.0.1:5501/dessertdata.json");
+  const response = await fetch("http://127.0.0.1:5500/dessertdata.json");
   dessertDish = await response.json();
   console.log(dessertDish);
   actionOnside();
@@ -65,6 +75,7 @@ function actionOnMain() {
 
     itemtext = mainDish[i].product;
     priceMMk = mainDish[i].priceNumber;
+    removeitem = mainDish[i].number;
 
     antiDRYfun();
   }
@@ -82,6 +93,7 @@ function actionOnside() {
 
     itemtext = dessertDish[i].product;
     priceMMk = dessertDish[i].priceNumber;
+    removeitem = dessertDish[i].number;
 
     antiDRYfun();
   }
@@ -90,13 +102,15 @@ function actionOnside() {
 const getdessrt = document.querySelector("#dessert");
 const getmain = document.querySelector("#Main");
 
-getdessrt.addEventListener("click", function () {
+getdessrt.addEventListener("click", function (e) {
   // console.log("i am working");
   getDessertMenu();
+  e.preventDefault();
 });
 
-getmain.addEventListener("click", function () {
+getmain.addEventListener("click", function (e) {
   actionOnMain();
+  e.preventDefault();
 });
 
 getcart.addEventListener("click", function () {
@@ -124,7 +138,12 @@ let antiDRYfun = function () {
   price.textContent = priceMMk + "MMK";
   price.style.color = "orange";
 
-  firsttextrow.append(itemname, price);
+  //3.Number
+  num = document.createElement("span");
+  num.textContent = removeitem;
+  num.style.display = "none";
+
+  firsttextrow.append(itemname, price, num);
 
   // Add to cart (create each item)
   addtocart = document.createElement("div");
@@ -145,10 +164,7 @@ let antiDRYfun = function () {
 };
 
 let addtocartfun = function (e) {
-  // e.path[4].children[3].children[removecartitem].id = `${removecartitem}`;
-
-  removecartfilter = e.path[2].children[0];
-  removecartfilter.style.filter = "blur(2px)";
+  e.path[2].children[0].style.filter = "blur(2px)";
   e.path[2].children[3].style.display = "block";
 
   removecart = e.path[2].children[2].children[0];
@@ -156,42 +172,71 @@ let addtocartfun = function (e) {
 
   cartdiv = document.createElement("div");
   cartimg = document.createElement("img");
+  addtocartnum = document.createElement("span");
   cartitemprice = document.createElement("h4");
   cartcontent = document.createElement("h4");
+  cartbutton = document.createElement("button");
+  cartbutton.textContent = "x";
 
   cartcontent.textContent = e.path[2].children[1].children[0].textContent;
-
+  addtocartnum.textContent = e.path[2].children[1].children[2].textContent;
   cartitemprice.textContent = e.path[2].children[1].children[1].textContent;
+
+  addtocartnum.style.display = "none";
   cartdiv.classList.add("cartdiv");
 
-  cartdiv.append(cartimg, cartcontent, cartitemprice);
+  cartdiv.append(cartimg, addtocartnum, cartcontent, cartitemprice);
+
   cartimagesrc = e.path[2].children[0].src;
 
-  console.log(cartimagesrc);
   cartimg.src = cartimagesrc;
   getcartbox.append(cartdiv);
-
-  getbadge.textContent = y++;
-
-  console.log(removecartitem);
-  console.log(e.path[4].children[3].children[removecartitem]);
-
-  cartid = e.path[4].children[3].children[removecartitem];
-  cartid.id = removecartitem;
-  removecartitem++;
 
   cancelbtn = e.path[2].children[3];
   e.path[2].style.border = "3px solid orange";
   cancelbtn.style.display = "block";
+
+  // Cancel Event Listener
   cancelbtn.addEventListener("click", cancelfun);
+
+  cartbutton.addEventListener("click", cancelfun);
 
   cartprice = Array.from(e.path[2].children[1].children[1].textContent);
   let splicedcartprice = cartprice.splice(0, 3);
 
   // total += Number(eachitem);
   getamount.textContent = total + " " + "MMk";
+
+  y = getbadge.textContent;
+  y++;
+  getbadge.textContent = +y++;
 };
 
 let cancelfun = function (e) {
-  console.log(e.path[3].children[3].children[2].id);
+  console.log(e.path[1]);
+  e.path[1].children[2].children[0].style.display = "block";
+  e.path[1].children[0].style.filter = "blur(0)";
+  e.target.parentElement.style.border = "none";
+  e.target.style.display = "none";
+  y = getbadge.textContent;
+  y--;
+  getbadge.textContent = y--;
+
+  itemnum = Number(e.path[1].children[1].children[2].textContent);
+  // console.log(itemnum);
+  // console.log(e.path[3].children[3].children);
+  cancelnum = Number(addtocartnum.textContent);
+  let spanvar;
+
+  for (let k = 0; k < e.path[3].children[3].children.length; k++) {
+    spanvar = e.path[3].children[3].children[k].children[1].textContent;
+
+    console.log(spanvar);
+
+    if (+spanvar == itemnum) {
+      e.path[3].children[3].children[k].remove();
+    }
+  }
+
+  console.log(cancelnum);
 };
