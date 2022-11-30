@@ -22,7 +22,7 @@ let trashicon;
 let image;
 let firsttextrow;
 let itemname, itemtext;
-let price, priceMMk;
+let price, priceMMk, priceCart, priceSpan, priceCancel;
 let addtocart, addtocartimg, orderBlur;
 
 let num, addtocartnum, cancelnum, itemnum;
@@ -75,6 +75,7 @@ function actionOnMain() {
 
     itemtext = mainDish[i].product;
     priceMMk = mainDish[i].priceNumber;
+    priceCart = priceMMk;
     removeitem = mainDish[i].number;
 
     antiDRYfun();
@@ -133,6 +134,11 @@ let antiDRYfun = function () {
   itemname = document.createElement("h3");
   itemname.textContent = itemtext;
 
+  // extraSpan
+  priceSpan = document.createElement("span");
+  priceSpan.textContent = priceCart;
+  priceSpan.style.display = "none";
+
   //2.Price
   price = document.createElement("h3");
   price.textContent = priceMMk + "MMK";
@@ -143,7 +149,7 @@ let antiDRYfun = function () {
   num.textContent = removeitem;
   num.style.display = "none";
 
-  firsttextrow.append(itemname, price, num);
+  firsttextrow.append(itemname, price, num, priceSpan);
 
   // Add to cart (create each item)
   addtocart = document.createElement("div");
@@ -196,24 +202,24 @@ let addtocartfun = function (e) {
   e.path[2].style.border = "3px solid orange";
   cancelbtn.style.display = "block";
 
-  // Cancel Event Listener
-  cancelbtn.addEventListener("click", cancelfun);
-
-  cartbutton.addEventListener("click", cancelfun);
-
-  cartprice = Array.from(e.path[2].children[1].children[1].textContent);
-  let splicedcartprice = cartprice.splice(0, 3);
-
-  // total += Number(eachitem);
-  getamount.textContent = total + " " + "MMk";
-
+  // Calculating Add to cart Number
   y = getbadge.textContent;
   y++;
-  getbadge.textContent = +y++;
+  getbadge.textContent = y++;
+
+  // Calculating Amount
+  console.log(e.path[2].children[1].children[3].textContent);
+  total += Number(e.path[2].children[1].children[3].textContent);
+  getamount.textContent = total + "MMK";
+  // Cancel Event Listener
+  cancelbtn.addEventListener("click", cancelfun);
+  cartbutton.addEventListener("click", cancelfun);
 };
 
 let cancelfun = function (e) {
-  console.log(e.path[1]);
+  getamount.textContent =
+    total - Number(e.path[1].children[1].children[3].textContent) + "MMK";
+
   e.path[1].children[2].children[0].style.display = "block";
   e.path[1].children[0].style.filter = "blur(0)";
   e.target.parentElement.style.border = "none";
@@ -223,20 +229,22 @@ let cancelfun = function (e) {
   getbadge.textContent = y--;
 
   itemnum = Number(e.path[1].children[1].children[2].textContent);
-  // console.log(itemnum);
-  // console.log(e.path[3].children[3].children);
+
   cancelnum = Number(addtocartnum.textContent);
   let spanvar;
 
   for (let k = 0; k < e.path[3].children[3].children.length; k++) {
     spanvar = e.path[3].children[3].children[k].children[1].textContent;
 
-    console.log(spanvar);
-
     if (+spanvar == itemnum) {
       e.path[3].children[3].children[k].remove();
     }
   }
 
-  console.log(cancelnum);
+  console.warn(total);
+  console.warn(Number(e.path[1].children[1].children[3].textContent));
+  console.log(total - Number(e.path[1].children[1].children[3].textContent));
+
+  priceCancel = total - Number(e.path[1].children[1].children[3].textContent);
+  total = priceCancel;
 };
